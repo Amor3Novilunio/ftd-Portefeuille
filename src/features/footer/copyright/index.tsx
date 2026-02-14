@@ -1,0 +1,14 @@
+import { useThemeStore } from "@/store/theme.store"
+import twm from "@/utils/twm";
+
+export default () => {
+    const { colors } = useThemeStore();
+    return <h2 className={twm({
+        base: `${colors.text.tertiary} font-bitcount tracking-wide`,
+        breakpoints: {
+            lg: "lg:text-sm",
+            xl: "xl:text-base",
+            "2xl": "2xl:text-base"
+        }
+    })}>© {new Date().getFullYear()} Amor Novilunio III. All rights reserved.</h2>
+}

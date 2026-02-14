@@ -1,0 +1,71 @@
+@reference "tailwindcss";
+
+@layer utilities {
+
+  /*         */
+  /* Default */
+  /*         */
+  .default-primary {
+    color: #0D0D0D
+  }
+
+  .default-secondary {
+    color: #96C711
+  }
+
+  .default-tertiary {
+    color: #24788F
+  }
+
+  /* ----------- */
+  /* background */
+  /* ----------- */
+  .default-primary-background {
+    background-color: #0D0D0D;
+  }
+
+  .default-secondary-background {
+    background-color: #96C711;
+  }
+
+  .default-tertiary-background {
+    background-color: #24788F;
+  }
+
+  /* ----------- */
+  /* border */
+  /* ----------- */
+  .default-primary-border {
+    border-color: #0D0D0D
+  }
+
+  .default-secondary-border {
+    border-color: #96C711
+  }
+
+  .default-tertiary-border {
+    border-color: #24788F
+  }
+
+  /* ----------- */
+  /* Fill */
+  /* ----------- */
+  .default-primary-fill {
+    fill: #232323
+  }
+
+  .default-secondary-fill {
+    fill: #96C711
+  }
+
+  .default-tertiary-fill {
+    fill: #24788F
+  }
+
+  /*         */
+  /* Test    */
+  /*         */
+  .test-primary-background {
+    background-color: red;
+  }
+}
