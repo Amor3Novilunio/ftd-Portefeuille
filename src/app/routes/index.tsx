@@ -18,13 +18,13 @@ type RouterProps = {
 
 export default ({ path }: RouterProps) => {
     return <Router onChange={route => path.set(route.url)}>
-        <Route path="/" component={Introduction} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/projects/frontend" component={Frontend} />
-        <Route path="/projects/backend" component={Backend} />
-        <Route path="/projects/tools" component={Tools} />
-        <Route path="/work-experiences" component={WorkExperiences} />
-        <Route path="/brain-dump" component={BrainDump} />
-        <Route path="/settings" component={Settings} />
+        <Route path="" component={Introduction} />
+        <Route path="projects" component={Projects} />
+        <Route path="projects/frontend" component={Frontend} />
+        <Route path="projects/backend" component={Backend} />
+        <Route path="projects/tools" component={Tools} />
+        <Route path="work-experiences" component={WorkExperiences} />
+        <Route path="brain-dump" component={BrainDump} />
+        <Route path="settings" component={Settings} />
     </Router>
 }

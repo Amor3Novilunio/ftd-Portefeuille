@@ -23,13 +23,13 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm cli
+        run: npm ci
 
       - name: Build Project
         run: npm run build
 
       - name: upload Build Artifacts/Output
-        uses: actions/upload-pages-artifacts@v3
+        uses: actions/upload-pages-artifact@v3
         with:
           name: "ftd-Portefeuille"
           path: dist
