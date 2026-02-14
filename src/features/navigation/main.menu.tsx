@@ -1,12 +1,15 @@
-import Links from "./links"
+import Links from "./links";
 
 export default () => {
-    return <>
-        <Links href="/" title="Introduction" />
-        <Links href="/projects" title="Projects" />
-        {/* <Links href="/work-experiences" title="Work Experiences" /> */}
-        <Links href="/brain-dump" title="Brain Dump" />
-        <Links href="/settings" title="Settings" />
-    </>
-}
+    const BASE = import.meta.env.BASE_URL;
 
+    return (
+        <>
+            <Links href={`${BASE}`} title="Introduction" />
+            <Links href={`${BASE}/projects`} title="Projects" />
+            <Links href={`${BASE}/work-experiences`} title="Work Experiences" />
+            <Links href={`${BASE}/brain-dump`} title="Brain Dump" />
+            <Links href={`${BASE}/settings`} title="Settings" />
+        </>
+    );
+};

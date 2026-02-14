@@ -16,15 +16,18 @@ type RouterProps = {
     }
 }
 
+
 export default ({ path }: RouterProps) => {
+    const BASE = import.meta.env.BASE_URL;
+
     return <Router onChange={route => path.set(route.url)}>
-        <Route path="" component={Introduction} />
-        <Route path="projects" component={Projects} />
-        <Route path="projects/frontend" component={Frontend} />
-        <Route path="projects/backend" component={Backend} />
-        <Route path="projects/tools" component={Tools} />
-        <Route path="work-experiences" component={WorkExperiences} />
-        <Route path="brain-dump" component={BrainDump} />
-        <Route path="settings" component={Settings} />
+        <Route path={`${BASE}`} component={Introduction} />
+        <Route path={`${BASE}/projects`} component={Projects} />
+        <Route path={`${BASE}/projects/frontend`} component={Frontend} />
+        <Route path={`${BASE}/projects/backend`} component={Backend} />
+        <Route path={`${BASE}/projects/tools`} component={Tools} />
+        <Route path={`${BASE}/work-experiences`} component={WorkExperiences} />
+        <Route path={`${BASE}/brain-dump`} component={BrainDump} />
+        <Route path={`${BASE}/settings`} component={Settings} />
     </Router>
 }

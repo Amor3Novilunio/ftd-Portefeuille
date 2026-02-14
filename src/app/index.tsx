@@ -12,7 +12,7 @@ export default function () {
   const { colors } = useThemeStore();
   const [path, setPath] = useState(window.location.pathname);
 
-  const pathIsProject = path.startsWith("/projects")
+  const pathIsProject = path.includes("/projects")
 
   return (
     <div className={twm({

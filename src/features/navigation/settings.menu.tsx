@@ -1,6 +1,10 @@
 export default () => {
-    return <>
-        <a href="/">Configurations</a>
-        <a href="/projects">Themes</a>
-    </>
-}
+    const BASE = import.meta.env.BASE_URL;
+
+    return (
+        <>
+            <a href={`${BASE}`}>Configurations</a>
+            <a href={`${BASE}/projects`}>Themes</a>
+        </>
+    );
+};
