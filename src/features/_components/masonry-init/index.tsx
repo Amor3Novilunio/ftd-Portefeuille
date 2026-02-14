@@ -13,7 +13,7 @@ export default function <T>({ getRequest, children }: {
     const { data, isSuccess } = getRequest;
 
     return <div className={twm({
-        base: "py-5 flex-1 flex flex-col items-start justify-center ",
+        base: "p-5 flex-1 flex flex-col items-start justify-center ",
         breakpoints: {
             "2xl": "2xl:w-[80%]"
         }

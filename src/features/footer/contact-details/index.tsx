@@ -7,8 +7,8 @@ export default () => {
         base: "",
         breakpoints: {
             lg: "lg:text-sm",
-            xl: "xl:text-base",
-            "2xl": "2xl:text-base"
+            xl: "xl:text-sm",
+            "2xl": "2xl:text-sm"
         }
     })} >
         <h2 className={twm({ base: `${colors.text.tertiary} font-bitcount tracking-widest` })}>Contact Details</h2>

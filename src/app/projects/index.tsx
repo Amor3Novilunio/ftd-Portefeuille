@@ -6,7 +6,7 @@ export default () => {
     return <div className={twm({
         base: "flex-1 flex flex-col justify-end p-5",
         breakpoints: {
-            lg: "lg:p-10"
+            lg: "lg:p-0"
         }
     })}>
         <Hero />

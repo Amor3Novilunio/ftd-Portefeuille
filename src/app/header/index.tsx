@@ -8,7 +8,7 @@ export default () => {
         <div className={twm({
             base: "flex justify-between items-center w-full ",
             breakpoints: {
-                sm: "sm:flex sm:justify-end",
+                sm: "sm:flex sm:justify-between",
                 md: "md:flex md:justify-between",
                 lg: "lg:flex lg:justify-end lg:p-5",
             }

@@ -16,7 +16,6 @@ type RouterProps = {
     }
 }
 
-
 export default ({ path }: RouterProps) => {
     const BASE = import.meta.env.BASE_URL;
 

@@ -16,9 +16,9 @@ export default () => {
             base: `text-base tracking-wide ${colors.text.tertiary}`,
             breakpoints: {
                 md: "md:text-3xl",
-                lg: "lg:text-3xl",
-                xl: "xl:text-3xl",
-                "2xl": "2xl:text-5xl"
+                lg: " ",
+                xl: " ",
+                "2xl": " "
             }
         })}>
             Software Developer / Full Stack Engineer
@@ -30,8 +30,8 @@ export default () => {
                 breakpoints: {
                     md: "md:text-lg md:w-[90%]",
                     lg: "lg:text-sm lg:w-[80%]",
-                    xl: "xl:text-sm xl:w-[60%]",
-                    "2xl": "2xl:text-base 2xl:w-[60%]"
+                    xl: "xl:text-xs xl:w-[60%]",
+                    "2xl": "2xl:text-xs 2xl:w-[60%]"
                 }
             })}
         >I build frontend applications with a systems mindset, clean architecture, pragmatic trade-offs.
@@ -46,8 +46,8 @@ export default () => {
                 breakpoints: {
                     md: "md:text-xs",
                     lg: "lg:text-sm",
-                    xl: "xl:text-sm",
-                    "2xl": "2xl:text-sm"
+                    xl: "xl:text-xs",
+                    "2xl": "2xl:text-xs"
                 }
             })}
         >

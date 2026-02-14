@@ -223,45 +223,53 @@ const Masonry: React.FC<MasonryProps> = ({
     };
 
     return (
-        <div ref={containerRef} className={twm({
-            base: "relative w-full h-full animate-fade animate-delay-500",
-            breakpoints: {
-                lg: "lg:w-[90%]",
-                xl: undefined,
-                "2xl": undefined,
-            }
-        })}>
-            {grid.map(item => (
+      <div
+        ref={containerRef}
+        className={twm({
+          base: "relative w-full h-full animate-fade animate-delay-500",
+          breakpoints: {
+            lg: "lg:w-[90%]",
+            xl: undefined,
+            "2xl": undefined,
+          },
+        })}
+      >
+        {grid.map((item) => (
+          <div
+            key={item.id}
+            data-key={item.id}
+            className="cursor-target absolute box-content flex flex-col items-center gap-2 cursor-pointer"
+            style={{ willChange: "transform, width, height, opacity" }}
+            onClick={() => getItemData(item)}
+            onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
+            onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
+          >
+            <div
+              className="relative w-full h-full bg-cover bg-center bg-no-repeat rounded-[10px] uppercase text-[10px] leading-[10px]"
+              style={{ backgroundImage: `url(${item.img})` }}
+            >
+              {colorShiftOnHover && (
                 <div
-                    key={item.id}
-                    data-key={item.id}
-                    className="absolute box-content flex flex-col items-center gap-2"
-                    style={{ willChange: 'transform, width, height, opacity' }}
-                    onClick={() => getItemData(item)}
-                    onMouseEnter={e => handleMouseEnter(item.id, e.currentTarget)}
-                    onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
-                >
-                    <div
-                        className="relative w-full h-full bg-cover bg-center bg-no-repeat rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
-                        style={{ backgroundImage: `url(${item.img})` }}
-                    >
-                        {colorShiftOnHover && (
-                            <div className={`color-overlay absolute inset-0 rounded-[10px] border-4 ${colors.border.secondary} opacity-0 pointer-events-none`} ></div>
-                        )}
-                    </div>
-                    <h2 className={twm({
-                        base: `pb-10 text-xs text-white font-montserrat ${colors.text.tertiary} font-semibold animate-fade tracking-widest`,
-                        breakpoints: {
-                            md: "md:text-sm md:pb-0",
-                            lg: "lg:text-sm",
-                            xl: "xl:text-base"
-                        }
-                    })}>
-                        {repoName(item.title)}
-                    </h2>
-                </div>
-            ))}
-        </div>
+                  className={`color-overlay absolute inset-0 rounded-[10px] border-4 ${colors.border.secondary} opacity-0 pointer-events-none`}
+                ></div>
+              )}
+            </div>
+            <h2
+              className={twm({
+                base: `pb-10 text-xs text-white font-montserrat ${colors.text.tertiary} font-semibold animate-fade tracking-widest`,
+                breakpoints: {
+                  md: "md:text-sm md:pb-0",
+                  lg: "lg:text-sm",
+                  xl: "xl:text-base",
+                  "2xl": "2xl:text-sm",
+                },
+              })}
+            >
+              {repoName(item.title)}
+            </h2>
+          </div>
+        ))}
+      </div>
     );
 };
 

@@ -6,9 +6,9 @@ export default () => {
     return <h2 className={twm({
         base: `${colors.text.tertiary} font-bitcount tracking-wide`,
         breakpoints: {
-            lg: "lg:text-sm",
-            xl: "xl:text-base",
-            "2xl": "2xl:text-base"
+            lg: "lg:text-xs",
+            xl: "xl:text-xs",
+            "2xl": "2xl:text-xs"
         }
     })}>© {new Date().getFullYear()} Amor Novilunio III. All rights reserved.</h2>
 }
