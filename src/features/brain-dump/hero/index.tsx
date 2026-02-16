@@ -7,7 +7,7 @@ export default () => {
     return (
       <div
         className={twm({
-          base: `flex flex-col gap-2 px-5 font-bitcount tracking-wide ${colors.text.secondary}`,
+          base: `flex flex-col gap-2 px-5 font-bitcount tracking-wide`,
           breakpoints: {
             md: "md:px-0",
           },
@@ -15,7 +15,7 @@ export default () => {
       >
         <h2
           className={twm({
-            base: `text-2xl tracking-widest ${colors.text.tertiary}`,
+            base: `text-2xl tracking-widest ${colors.text.primary}`,
             breakpoints: {
               md: "md:text-3xl",
               lg: " ",
@@ -29,7 +29,7 @@ export default () => {
 
         <h2
           className={twm({
-            base: "text-xs tracking-widest",
+            base: `text-xs tracking-widest ${colors.text.secondary}`,
             breakpoints: {
               md: "md:text-sm",
               lg: " ",

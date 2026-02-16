@@ -18,7 +18,7 @@ export default ({ href, title, onClick }: LinkProps) => {
             onClick={onClick}
             href={href}
             className={twm({
-              base: `cursor-target text-xl py-2 font-bitcount hover:text-white flex items-center justify-center`,
+              base: `cursor-target text-xl py-2 font-bitcount flex items-center justify-center`,
               breakpoints: {
                 md: "md:text-3xl md:py-5",
                 lg: "lg:text-2xl lg:px-14 lg:even:w-[60%] lg:py-3",
@@ -26,7 +26,7 @@ export default ({ href, title, onClick }: LinkProps) => {
                 "2xl": "2xl:text-2xl 2xl:px-20 2xl:py-3",
               },
               override: {
-                base: matches ? colors.text.tertiary : colors.text.secondary,
+                base: matches ? colors.text.primary : colors.text.secondary,
               },
             })}
           >

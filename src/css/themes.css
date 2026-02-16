@@ -1,71 +1,36 @@
 @reference "tailwindcss";
 
 @layer utilities {
-
-  /*         */
-  /* Default */
-  /*         */
-  .default-primary {
-    color: #0D0D0D
+  :root {
+    /* dft */
+    --dft-primary: #24788f !important;
+    --dft-secondary: #96c711 !important;
+    /*  */
+    --dft-bg-primary: #0d0d0d;
   }
 
-  .default-secondary {
-    color: #96C711
+  /*                  */
+  /*  Default ( dft ) */
+  /*                  */
+  .dft-primary {
+    color: var(--dft-primary);
   }
 
-  .default-tertiary {
-    color: #24788F
+  .dft-secondary {
+    color: var(--dft-secondary);
   }
 
   /* ----------- */
   /* background */
   /* ----------- */
-  .default-primary-background {
-    background-color: #0D0D0D;
+  .dft-primary-bg {
+    background-color: var(--dft-bg-primary);
   }
 
-  .default-secondary-background {
-    background-color: #96C711;
-  }
-
-  .default-tertiary-background {
-    background-color: #24788F;
-  }
-
-  /* ----------- */
-  /* border */
-  /* ----------- */
-  .default-primary-border {
-    border-color: #0D0D0D
-  }
-
-  .default-secondary-border {
-    border-color: #96C711
-  }
-
-  .default-tertiary-border {
-    border-color: #24788F
-  }
-
-  /* ----------- */
-  /* Fill */
-  /* ----------- */
-  .default-primary-fill {
-    fill: #232323
-  }
-
-  .default-secondary-fill {
-    fill: #96C711
-  }
-
-  .default-tertiary-fill {
-    fill: #24788F
-  }
-
-  /*         */
-  /* Test    */
-  /*         */
-  .test-primary-background {
+  /*               */
+  /*  test ( tst ) */
+  /*               */
+  .test-primary-bg {
     background-color: red;
   }
 }

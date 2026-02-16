@@ -3,10 +3,15 @@ import Hero from "@/features/introduction/hero"
 import twm from "@/utils/twm"
 
 export default () => {
-    return <div className={twm({
-        base: "flex-1 flex flex-col justify-center gap-5"
-    })}>
+    return (
+      <div
+        className={twm({
+          base: "flex-1 flex flex-col justify-start gap-5",
+        })}
+      >
         <Hero />
+        <span className={"text-5xl font-montserrat text-white tracking-widest"}>TBA</span>
         {/* <WhatIWorkWith /> */}
-    </div>
+      </div>
+    );
 }

@@ -6,145 +6,171 @@ import { useState } from "preact/hooks";
 import twm from "@/utils/twm";
 import getRaw from "@/services/request/get.raw";
 import CircularText from "@/components/react-bits/circular.text";
-import Markdown from 'markdown-to-jsx';
-import 'github-markdown-css/github-markdown.css';
+import Markdown from "markdown-to-jsx";
+import "github-markdown-css/github-markdown.css";
 import { useThemeStore } from "@/store/theme.store";
 import type { MasonryItemsProps, PayloadCollectionData } from "./types";
 
-
 export default ({ items, payload }: MasonryItemsProps) => {
-    const { colors } = useThemeStore();
-    const { getReadme } = getRaw();
-    const [modal, setModal] = useState(false);
-    const [payloadCollection, setPayloadCollection] = useState<PayloadCollectionData | undefined>(undefined);
+  const { colors } = useThemeStore();
+  const { getReadme } = getRaw();
+  const [modal, setModal] = useState(false);
+  const [payloadCollection, setPayloadCollection] = useState<
+    PayloadCollectionData | undefined
+  >(undefined);
 
-    const getItemHandler = (item: Item) => {
-        setModal(!modal)
+  const getItemHandler = (item: Item) => {
+    setModal(!modal);
 
-        const collection = payload.filter(payload => payload.id == item.id)[0];
+    const collection = payload.filter((payload) => payload.id == item.id)[0];
 
-        setPayloadCollection({
-            repo: `${collection.repo}`,
-            title: `${collection.name}`,
-            htmlUrl: `${collection.html_url}`,
-            mdFile: `${collection.mdFile}`
-        })
-    }
+    setPayloadCollection({
+      repo: `${collection.repo}`,
+      title: `${collection.name}`,
+      htmlUrl: `${collection.html_url}`,
+      mdFile: `${collection.mdFile}`,
+    });
+  };
 
-    const { data, isSuccess, isLoading, isError, error } = getReadme({ repo: payloadCollection?.repo, mdName: payloadCollection?.mdFile });
+  const { data, isSuccess, isLoading, isError, error } = getReadme({
+    repo: payloadCollection?.repo,
+    mdName: payloadCollection?.mdFile,
+  });
 
-    return (
-      <>
-        <Masonry
-          items={items}
-          ease="power3.out"
-          duration={0.6}
-          stagger={0.05}
-          animateFrom="bottom"
-          scaleOnHover
-          hoverScale={0.95}
-          blurToFocus
-          colorShiftOnHover={true}
-          getItemData={getItemHandler}
-        />
+  return (
+    <>
+      <Masonry
+        items={items}
+        ease="power3.out"
+        duration={0.6}
+        stagger={0.05}
+        animateFrom="bottom"
+        scaleOnHover
+        hoverScale={0.95}
+        blurToFocus
+        colorShiftOnHover={true}
+        getItemData={getItemHandler}
+      />
 
-        <Modal
-          key={modal ? payloadCollection?.repo : "closed"} // Different key when closed
-          modal={{ state: modal, set: setModal }}
-        >
-          {isError && <h2>Collection not Found Please try again later</h2>}
-
-          {isError && (
-            <>
-              {error.message.includes("404") && (
-                <div
-                  className={twm({
-                    base: `flex flex-col gap-5 p-5 items-start ${colors.text.secondary}`,
-                  })}
-                >
-                  <h2>404: Readme.md Not Found</h2>
-                  <h3>
-                    Either a new Repository or README.md is missing for more
-                    information
-                  </h3>
-                  <a
-                    target={"_blank"}
-                    href={payloadCollection?.htmlUrl}
-                    className={twm({
-                      base: `ml-5 font-montserrat text-lg py-1 px-5 rounded-lg ${colors.background.tertiary} ${colors.buttonText.primary}`,
-                    })}
-                  >
-                    {"Open Repository"}
-                  </a>
-                </div>
-              )}
-            </>
-          )}
-
-          {isLoading && (
-            <div className={"size-full flex items-center justify-center"}>
-              <CircularText
-                className="font-bitcount font-normal"
-                text="LOADING.-.LOADING.-."
-                spinDuration={8}
-                onHover="speedUp"
-              />
-            </div>
-          )}
-
-          {isSuccess && data && payloadCollection && (
-            <>
+      <Modal
+        key={modal ? payloadCollection?.repo : "closed"} // Different key when closed
+        modal={{ state: modal, set: setModal }}
+      >
+        {isError && (
+          <>
+            {error.message.includes("404") && (
               <div
                 className={twm({
-                  base: `size-full flex flex-col items-start p-5 gap-2 ${colors.text.secondary}`,
+                  base: `flex flex-col gap-5 p-5 items-center font-montserrat ${colors.text.secondary}`,
                 })}
               >
-                <div
+                <h2
                   className={twm({
-                    base: "flex flex-col gap-5 items-start border-b-2",
+                    base: `${colors.text.primary} font-bitcount text-2xl`,
                   })}
                 >
+                  MD file not Found Please try again later
+                </h2>
+
+                <h2>404: Readme.md Not Found</h2>
+                <h3>
+                  Either a new Repository or README.md is missing for more
+                  information
+                </h3>
+                <a
+                  target={"_blank"}
+                  href={payloadCollection?.htmlUrl}
+                  className={twm({
+                    base: `cursor-target font-montserrat text-sm py-2 px-5 font-semibold border-y-2 text-white`,
+                  })}
+                >
+                  Open Repository
+                </a>
+              </div>
+            )}
+          </>
+        )}
+
+        {isLoading && (
+          <div className={"size-full flex items-center justify-center"}>
+            <CircularText
+              className="font-bitcount font-normal"
+              text="LOADING.-.LOADING.-."
+              spinDuration={8}
+              onHover="speedUp"
+            />
+          </div>
+        )}
+
+        {isSuccess && data && payloadCollection && (
+          <>
+            <div
+              className={twm({
+                base: `size-full flex flex-col items-start p-5 gap-2 ${colors.text.secondary}`,
+              })}
+            >
+              <div
+                className={twm({
+                  base: "flex flex-col gap-5 items-start",
+                })}
+              >
+                <div className={twm({ base: "flex gap-2" })}>
                   <a
                     target={"_blank"}
                     href={payloadCollection.htmlUrl}
                     className={twm({
-                      base: `cursor-target font-montserrat text-sm py-1 px-5 rounded font-semibold ${colors.background.tertiary} ${colors.buttonText.primary}`,
+                      base: `cursor-target font-montserrat text-sm py-2 px-5 font-semibold border-y-2 text-white`,
                       breakpoints: {
-                        md: "md:text-base md:ml-5",
+                        md: "md:text-base",
                         lg: "lg:text-sm",
                       },
                     })}
                   >
                     Open Repository
                   </a>
-                  <h2
+                  {/* <span className={"text-2xl"}>/</span>
+                  <a
+                    target={"_blank"}
+                    href={payloadCollection.htmlUrl}
                     className={twm({
-                      base: "font-bitcount text-base",
+                      base: `cursor-target font-montserrat text-sm py-2 px-5 font-semibold border-y-2`,
                       breakpoints: {
-                        md: "md:text-xl",
-                        lg: "lg:text-2xl",
+                        md: "md:text-base",
+                        lg: "lg:text-sm",
                       },
                     })}
                   >
-                    {repoName(payloadCollection.title)} - MARKDOWN
-                  </h2>
+                    Open Repository
+                  </a> */}
                 </div>
-
-                <div
+                <h2
                   className={twm({
-                    base: `text-[0.5rem]! flex-1 flex markdown-body bg-transparent! overflow-auto p-2 *:font-montserrat max-w-full box-border`,
+                    base: `font-bitcount text-base border-b-2 ${colors.text.primary}`,
                     breakpoints: {
-                      md: "md:text-[0.7rem]!",
-                      lg: "lg:text-[1rem]!",
+                      md: "md:text-xl",
+                      lg: "lg:text-2xl",
                     },
                   })}
                 >
-                  <Markdown>{data.payload}</Markdown>
-                </div>
+                  {repoName(payloadCollection.title)} - MARKDOWN
+                </h2>
               </div>
-            </>
-          )}
-        </Modal>
-      </>
-    );
-}
+
+              <div
+                className={twm({
+                  base: `text-[0.5rem]! flex-1 flex markdown-body bg-transparent! overflow-auto p-2 *:font-montserrat max-w-full box-border `,
+                  breakpoints: {
+                    md: "md:text-[0.7rem]!",
+                    lg: "lg:text-[1rem]!",
+                  },
+                })}
+              >
+                <Markdown>{data.payload}</Markdown>
+              </div>
+            </div>
+          </>
+        )}
+      </Modal>
+    </>
+  );
+};

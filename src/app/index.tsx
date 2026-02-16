@@ -7,6 +7,7 @@ import ProjectsMenu from "@/features/navigation/projects.menu";
 import Header from "./header";
 import Footer from "./footer";
 import TargetCursor from "@/components/react-bits/target-cursor";
+import LaserFlow from "@/components/react-bits/laser-flow";
 
 export default function () {
   const { colors } = useThemeStore();
@@ -17,7 +18,7 @@ export default function () {
   return (
     <div
       className={twm({
-        base: `h-dvh flex ${colors.background.primary} `,
+        base: `h-dvh flex ${colors.background.primary}`,
       })}
     >
       {/* Content */}
@@ -67,7 +68,7 @@ export default function () {
           {/* Children */}
           <main
             className={twm({
-              base: "flex-1 min-h-0 flex flex-col overflow-auto",
+              base: "flex-1 min-h-0 flex flex-col overflow-auto scrollbar-thumb-[#232323] scrollbar-thin scrollbar-track-transparent",
             })}
           >
             <Routes path={{ state: path, set: setPath }} />
@@ -78,6 +79,21 @@ export default function () {
         <Footer />
       </div>
 
+      {/* Background */}
+      <div
+        className={twm({
+          base: "flex-1 size-full absolute z-0",
+        })}
+      >
+        <LaserFlow
+          className="size-full opacity-50"
+          horizontalBeamOffset={-0.24}
+          horizontalSizing={1}
+          verticalBeamOffset={-0.5}
+          falloffStart={0.8}
+          color="#96C711"
+        />
+      </div>
     </div>
   );
 }

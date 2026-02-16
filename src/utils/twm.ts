@@ -28,7 +28,7 @@ export default ({ base, override, breakpoints }: TwmProps) => {
         ?.split(" ")
         .filter((item) => !item.includes(`${breakpoints}:`)).length > 0;
 
-    if (bpHandler("sm")) alert("HELLO WORLD");
+    if (bpHandler("sm")) throw new Error("sm:<command> not found");
 
     if (bpHandler("md")) throw new Error("md:<command> not found");
 

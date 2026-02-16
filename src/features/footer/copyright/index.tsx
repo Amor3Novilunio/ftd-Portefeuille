@@ -4,7 +4,7 @@ import twm from "@/utils/twm";
 export default () => {
     const { colors } = useThemeStore();
     return <h2 className={twm({
-        base: `${colors.text.tertiary} font-bitcount tracking-wide`,
+        base: `${colors.text.primary} font-bitcount tracking-wide`,
         breakpoints: {
             lg: "lg:text-xs",
             xl: "xl:text-xs",

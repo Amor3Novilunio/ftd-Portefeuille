@@ -20,7 +20,7 @@ export default () => {
         }
     })}>
         <TbMenu2 className={twm({
-            base: `text-2xl ${colors.buttonText.secondary}`,
+            base: `text-2xl text-white`,
             breakpoints: {
                 md: "md:text-3xl"
             }

@@ -52,13 +52,13 @@ export default ({ modal, children }: ModalProps) => {
           className={twm({
             base: `size-full rounded-lg z-20 ${colors.background.primary} ${colors.border.secondary} border-2 relative`,
             breakpoints: {
-              lg: "lg:size-[95%]",
+              lg: "lg:size-[96%]",
             },
           })}
         >
           <button
             className={twm({
-              base: `cursor-target absolute right-5 top-5 ${colors.buttonText.secondary} text-xl`,
+              base: `cursor-target absolute right-5 top-5 text-white text-xl cursor-pointer`,
               breakpoints: {
                 md: "md:top-5 md:right-5 md:text-2xl",
                 lg: "lg:top-5 lg:right-5",

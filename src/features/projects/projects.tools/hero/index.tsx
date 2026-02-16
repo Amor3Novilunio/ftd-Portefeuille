@@ -7,26 +7,16 @@ export default () => {
   return (
     <div
       className={twm({
-        base: `flex flex-col justify-center gap-5 font-bitcount tracking-wide ${colors.text.secondary}`,
+        base: `flex flex-col justify-center gap-5 font-bitcount tracking-wide `,
       })}
     >
       <h2
         className={twm({
-          base: `text-3xl tracking-widest ${colors.text.tertiary}`,
+          base: `text-3xl tracking-widest ${colors.text.primary}`,
         })}
       >
         Here lies thy Tools
       </h2>
-      <h4
-        className={twm({
-          base: "text-sm",
-          breakpoints: {
-            "2xl": "2xl:text-xs",
-          },
-        })}
-      >
-        - Amor Novilunio III
-      </h4>
     </div>
   );
 };

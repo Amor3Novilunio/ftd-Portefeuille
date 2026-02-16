@@ -256,7 +256,7 @@ const Masonry: React.FC<MasonryProps> = ({
             </div>
             <h2
               className={twm({
-                base: `pb-10 text-xs text-white font-montserrat ${colors.text.tertiary} font-semibold animate-fade tracking-widest`,
+                base: `pb-10 text-xs text-white font-montserrat ${colors.text.primary} font-semibold animate-fade tracking-widest`,
                 breakpoints: {
                   md: "md:text-sm md:pb-0",
                   lg: "lg:text-sm",

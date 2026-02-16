@@ -11,7 +11,7 @@ export default () => {
             "2xl": "2xl:text-sm"
         }
     })} >
-        <h2 className={twm({ base: `${colors.text.tertiary} font-bitcount tracking-widest` })}>Contact Details</h2>
+        <h2 className={twm({ base: `${colors.text.primary} font-bitcount tracking-widest` })}>Contact Details</h2>
         <h3 className={twm({ base: `${colors.text.secondary} font-semibold font-montserrat` })}>amor.3.novilunio@gmail.com</h3>
     </div>
 }
