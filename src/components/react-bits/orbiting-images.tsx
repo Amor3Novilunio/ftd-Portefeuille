@@ -45,15 +45,15 @@ interface OrbitImagesProps {
   responsive?: boolean;
 }
 
-interface OrbitItemProps {
-  item: ReactNode;
-  index: number;
-  totalItems: number;
-  path: string;
-  itemSize: number;
-  rotation: number;
-  fill: boolean;
-}
+// interface OrbitItemProps {
+//   item: ReactNode;
+//   index: number;
+//   totalItems: number;
+//   path: string;
+//   itemSize: number;
+//   rotation: number;
+//   fill: boolean;
+// }
 
 function generateEllipsePath(
   cx: number,
@@ -148,52 +148,52 @@ function generateWavePath(
   return pts.join(" ") + " Z";
 }
 
-function OrbitItem({
-  item,
-  index,
-  totalItems,
-  path,
-  itemSize,
-  rotation,
-  fill,
-}: OrbitItemProps) {
-  const itemRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef({ value: 0 });
+// function OrbitItem({
+//   item,
+//   index,
+//   totalItems,
+//   path,
+//   itemSize,
+//   rotation,
+//   fill,
+// }: OrbitItemProps) {
+//   const itemRef = useRef<HTMLDivElement>(null);
+//   const progressRef = useRef({ value: 0 });
 
-  const itemOffset = fill ? (index / totalItems) * 100 : 0;
+//   const itemOffset = fill ? (index / totalItems) * 100 : 0;
 
-  useEffect(() => {
-    if (!itemRef.current) return;
+//   useEffect(() => {
+//     if (!itemRef.current) return;
 
-    const updatePosition = () => {
-      if (!itemRef.current) return;
-      const p = progressRef.current.value;
-      const offset = (((p + itemOffset) % 100) + 100) % 100;
-      itemRef.current.style.offsetDistance = `${offset}%`;
-    };
+//     const updatePosition = () => {
+//       if (!itemRef.current) return;
+//       const p = progressRef.current.value;
+//       const offset = (((p + itemOffset) % 100) + 100) % 100;
+//       itemRef.current.style.offsetDistance = `${offset}%`;
+//     };
 
-    // Set up a ticker to update position
-    gsap.ticker.add(updatePosition);
-    return () => gsap.ticker.remove(updatePosition);
-  }, [itemOffset]);
+//     // Set up a ticker to update position
+//     gsap.ticker.add(updatePosition);
+//     return () => gsap.ticker.remove(updatePosition);
+//   }, [itemOffset]);
 
-  return (
-    <div
-      ref={itemRef}
-      className="absolute will-change-transform select-none"
-      style={{
-        width: itemSize,
-        height: itemSize,
-        offsetPath: `path("${path}")`,
-        offsetRotate: "0deg",
-        offsetAnchor: "center center",
-        offsetDistance: `${itemOffset}%`,
-      }}
-    >
-      <div style={{ transform: `rotate(${-rotation}deg)` }}>{item}</div>
-    </div>
-  );
-}
+//   return (
+//     <div
+//       ref={itemRef}
+//       className="absolute will-change-transform select-none"
+//       style={{
+//         width: itemSize,
+//         height: itemSize,
+//         offsetPath: `path("${path}")`,
+//         offsetRotate: "0deg",
+//         offsetAnchor: "center center",
+//         offsetDistance: `${itemOffset}%`,
+//       }}
+//     >
+//       <div style={{ transform: `rotate(${-rotation}deg)` }}>{item}</div>
+//     </div>
+//   );
+// }
 
 export default function OrbitImages({
   images = [],
