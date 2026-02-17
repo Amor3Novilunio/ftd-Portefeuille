@@ -1,12 +1,10 @@
 import Modal from "@/components/modal";
 import BurgerMenu from "@/features/navigation/burger.menu";
-import { useThemeStore } from "@/store/theme.store"
 import twm from "@/utils/twm"
 import { useState } from "preact/hooks";
 import { TbMenu2 } from "react-icons/tb";
 
 export default () => {
-    const { colors } = useThemeStore();
 
     const [modal, setModal] = useState(false);
 

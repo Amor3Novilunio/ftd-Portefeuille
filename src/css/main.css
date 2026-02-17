@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 @import "tailwindcss-animated";
+@plugin 'tailwind-scrollbar';
+@custom-variant hover (&:hover);
 
 @theme {
   --font-bitcount: "Bitcount Prop Single", sans-serif;

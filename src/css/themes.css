@@ -1,12 +1,19 @@
-@reference "tailwindcss";
-
 @layer utilities {
   :root {
+    /*-----*/
     /* dft */
+    /*-----*/
     --dft-primary: #24788f !important;
     --dft-secondary: #96c711 !important;
-    /*  */
-    --dft-bg-primary: #0d0d0d;
+    /* bg */
+    --dft-bg-primary: #0d0d0d !important;
+    /*-----------*/
+    /* cyberpunk */
+    /*-----------*/
+    --cp-primary: #ff006e !important;
+    --cp-secondary: #00f5ff !important;
+    /* bg */
+    --cp-bg-primary: #232323 !important;
   }
 
   /*                  */
@@ -27,10 +34,21 @@
     background-color: var(--dft-bg-primary);
   }
 
-  /*               */
-  /*  test ( tst ) */
-  /*               */
-  .test-primary-bg {
-    background-color: red;
+  /*                   */
+  /*  cyberpunk ( cp ) */
+  /*                   */
+  .cp-primary {
+    color: var(--cp-primary);
+  }
+
+  .cp-secondary {
+    color: var(--cp-secondary);
+  }
+
+  /* ----------- */
+  /* background */
+  /* ----------- */
+  .cp-primary-bg {
+    background-color: var(--cp-bg-primary);
   }
 }

@@ -1,4 +1,3 @@
-import ContactDetails from "@/features/footer/contact-details"
 import Copyright from "@/features/footer/copyright"
 import twm from "@/utils/twm"
 
@@ -14,7 +13,6 @@ export default () => {
         })}>
 
             <Copyright />
-            <ContactDetails />
         </div>
     </>
 }

@@ -52,7 +52,7 @@ export default ({ modal, children }: ModalProps) => {
           className={twm({
             base: `size-full rounded-lg z-20 ${colors.background.primary} ${colors.border.secondary} border-2 relative`,
             breakpoints: {
-              lg: "lg:size-[96%]",
+              lg: "lg:size-[90%]",
             },
           })}
         >
